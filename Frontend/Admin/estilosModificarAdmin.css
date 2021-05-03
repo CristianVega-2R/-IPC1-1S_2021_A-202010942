@@ -1,0 +1,27 @@
+.main-section
+{
+    margin:0 auto;
+    padding:0;
+    margin-top:50px;
+}
+
+#nombre
+{
+    margin-top:40px;
+}
+
+#telefono
+{
+    margin-bottom:20px;
+}
+
+.campo
+{
+    width:80%;
+}
+
+#modificarUsuario
+{
+    margin-bottom:30px;
+    width:60%;
+}

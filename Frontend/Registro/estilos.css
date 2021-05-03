@@ -1,0 +1,22 @@
+.main-section
+{
+    margin:0 auto;
+    margin-top:10%;
+    padding:0;
+}
+
+#registrarUsuario
+{
+    margin-top:40px;
+    margin-bottom:40px;
+    width:60%;
+}
+
+.campo
+{
+    width:80%;
+}
+#nombre
+{
+    margin-top:60px;
+}

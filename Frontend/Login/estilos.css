@@ -1,0 +1,24 @@
+.main-section
+{
+    margin:0 auto;
+    margin-top:25%;
+    padding:0;
+}
+
+#iniciarSesion
+{
+    margin-bottom:40px;
+    width:60%;
+}
+
+#contrasena
+{
+    width:80%;
+    margin-bottom:10px;
+}
+
+#usuario
+{
+    width:80%;
+    margin-top:60px;
+}

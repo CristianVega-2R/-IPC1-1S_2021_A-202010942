@@ -1,0 +1,13 @@
+.contenedor
+{
+    width:75%;
+    margin:0 auto;
+    margin-top:40px;
+}
+h3
+{
+    color:#292B2F;
+    margin-top:20px;
+    margin-bottom:20px;
+    text-align:center;
+}

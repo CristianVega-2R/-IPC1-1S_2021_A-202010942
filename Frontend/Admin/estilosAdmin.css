@@ -1,0 +1,32 @@
+.main-section
+{
+    margin:0 auto;
+    padding:0;
+}
+.campo
+{
+    margin-top:30px;
+    margin-bottom:20px;
+}
+button
+{
+    width:60%;
+}
+h5
+{
+    margin-top:30px;
+}
+
+.ruta
+{
+    width:80%;
+}
+.carga
+{
+    width:60%;
+    margin-bottom:10px;
+}
+#cargarArchivoMedicina
+{
+    margin-bottom:40px;
+}

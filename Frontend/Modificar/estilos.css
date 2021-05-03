@@ -1,0 +1,23 @@
+.campo
+{
+    width:80%;
+}
+
+.main-section
+{
+    margin:0 auto;
+    margin-top:10%;
+    padding:0;
+}
+
+#modificarUsuario
+{
+    margin-top:40px;
+    margin-bottom:40px;
+    width:60%;
+}
+
+#nombre
+{
+    margin-top:60px;
+}
