@@ -174,6 +174,81 @@ function actualizar()
     });
 }
 
+function actualizarMedicamentos()
+{
+    document.getElementById("cardscMedicinas").innerHTML='';
+    let text=""
+    fetch("http://localhost:5000/obtenerMedicinas")
+    .then(response => response.json())
+    .then(data=>
+        {
+            text+="<h3>Tabla pacientes</h3>"
+            text+=`<table class="table table-light">`
+            for(var i = 0;i<data.length;i++)
+            {
+                if(data[i].tipo=="1")
+                {
+                    text+=
+                    `
+                    <tr>
+                        <td>${data[i].nombre}</td>
+                        <td>${data[i].precio}</td>
+                        <td>${data[i].cantidad}</td>
+                        <td><a href="Visualizar.html"><input type="button" id="${data[i].usuario}" class="btn btn-primary" value="Visualizar" onclick="enviarModificar('${data[i].nombre}')"</a></td>
+                        <td><input type="button" id="${data[i].usuario}" class="btn btn-primary" value="Eliminar"  onclick="eliminar('${data[i].nombre}')"</td>
+                        <td><a href="ModificarAdmin.html"><input type="button" id="${data[i].usuario}" class="btn btn-primary" value="Modificar" onclick="enviarModificar('${data[i].nombre}','${data[i].tipo}')"</a></td>
+                    </tr>
+                    `
+                }
+                
+            }
+            text+="</table>"
+            text+="<h3>Tabla enfermeras</h3>"
+            text+=`<table class="table table-light">`
+            for(var i = 0; i<data.length;i++)
+            {
+                if(data[i].tipo=="2")
+                {
+                    text+=
+                    `
+                    <tr>
+                        <td>${data[i].nombre}</td>
+                        <td>${data[i].usuario}</td>
+                        <td>${data[i].telefono}</td>
+                        <td><a href="Visualizar.html"><input type="button" id="${data[i].usuario}" class="btn btn-primary" value="Visualizar" onclick="enviarModificar('${data[i].nombre}')"</a></td>
+                        <td><input type="button" id="${data[i].usuario}" class="btn btn-primary" value="Eliminar" onclick="eliminar('${data[i].nombre}')"</td>
+                        <td><a href="ModificarAdmin.html"><input type="button" id="${data[i].usuario}" class="btn btn-primary" value="Modificar" onclick="enviarModificar('${data[i].nombre}','${data[i].tipo}')"</a></td>
+
+                    </tr>
+                    `
+                }
+            }
+            text+="</table>"
+            text+="<h3>Tabla doctores</h3>"
+            text+=`<table class="table table-light">`
+            for(var i = 0; i<data.length;i++)
+            {
+                if(data[i].tipo=="3")
+                {
+                    text+=
+                    `
+                    <tr>
+                        <td>${data[i].nombre}</td>
+                        <td>${data[i].usuario}</td>
+                        <td>${data[i].telefono}</td>
+                        <td><a href="Visualizar.html"><input type="button" id="${data[i].usuario}"  class="btn btn-primary" value="Visualizar" onclick="enviarModificar('${data[i].nombre}')"</a></td>
+                        <td><input type="button" id="${data[i].usuario}" class="btn btn-primary" value="Eliminar" onclick="eliminar('${data[i].nombre}')"</td>
+                        <td><a href="ModificarAdmin.html"><input type="button" id="${data[i].usuario}" class="btn btn-primary" value="Modificar" onclick="enviarModificar('${data[i].nombre}','${data[i].tipo}')"</a></td>
+                    </tr>
+                    `
+                }
+            }
+            text+="</table>"
+
+        document.getElementById("cardsc").innerHTML=text;
+    });
+}
+
 function actualizarPDF()
 {
     document.getElementById("cardsc").innerHTML='';

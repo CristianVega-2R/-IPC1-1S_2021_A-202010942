@@ -34,6 +34,7 @@ function tienda()
         
 }
 
+
 function comprar(producto)
 {
     alert("Comprado")
