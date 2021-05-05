@@ -19,38 +19,6 @@ class Gestor:
         self.recetas=[]
         self.pedido=[]
         self.idCitaRecetada=0
-        self.usuarios.append(Usuario("Cristian", "Vega", "07/10/2000","M","Cristian2000","1234","12346781","","1"))
-        self.usuarios.append(Usuario("Cristian1", "Vega1", "08/10/2000","M","Cristian2001","1234","12346782","","2"))
-        self.usuarios.append(Usuario("Cristian2", "Vega2", "09/10/2000","M","Cristian2002","1234","12346783","","3"))
-        self.usuarios.append(Usuario("Cristian3", "Vega3", "10/10/2000","M","Cristian2003","1234","12346784","","1"))
-        self.usuarios.append(Usuario("Cristian4", "Vega4", "11/10/2000","M","Cristian2004","1234","12346780","","1"))
-        self.medicinas.append(Medicina("A1",250,"A3",62,0))
-        self.medicinas.append(Medicina("B1",100,"B3",14,0))
-        self.medicinas.append(Medicina("C1",600,"C3",35,0))
-        self.medicinas.append(Medicina("D1",200,"C3",15,0))
-        self.medicinas.append(Medicina("F1",100,"C3",25,0))
-        self.medicinas.append(Medicina("G1",60,"C3",54,0))
-        self.medicinas.append(Medicina("H1",20,"C3",52,0))
-        self.medicinas.append(Medicina("I1",10,"C3",51,0))
-        self.medicinas.append(Medicina("J1",250,"C3",55,0))
-        self.medicinas.append(Medicina("K1",30,"C3",3,0))
-        self.medicinas.append(Medicina("L1",80,"C3",2,0))
-        self.recetas.append(Receta("fdsa","Padecimiento1","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento1","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento1","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento2","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento3","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento4","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento6","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento3","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento1","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento2","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento0","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento3","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento4","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento4","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento5","fdsafsda"))
-        self.recetas.append(Receta("fdsa","Padecimiento6","fdsafsda"))
     def crearUsuario(self,nombre, apellido, fecha, sexo, usuario, contrasena, telefono,especialidad,tipo):
         existe=False
         for x in self.usuarios:
@@ -316,7 +284,7 @@ class Gestor:
         while i < len(hola):
             texto = re.split(',',hola[i])
             print("hola")
-            self.medicinas.append(Medicina(texto[0],texto[1],texto[2],texto[3],0))
+            self.medicinas.append(Medicina(texto[0],float(texto[1]),texto[2],float(texto[3]),0))
             i = i+1 
 
             
