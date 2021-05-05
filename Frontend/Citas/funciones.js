@@ -1,7 +1,7 @@
 let headers = new Headers()
 headers.append('Content-Type', 'application/json');
 headers.append('Accept', 'application/json');
-headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
+headers.append('Access-Control-Allow-Origin', 'http://130.211.213.9:5000');
 headers.append('Access-Control-Allow-Credentials', 'true');
 headers.append('GET', 'POST', 'OPTIONS','PUT','DELETE');
 
@@ -10,7 +10,7 @@ function generarBoton()
 {
     
     let text=""
-    fetch("http://localhost:5000/solicitar")
+    fetch("http://130.211.213.9:5000/solicitar")
     .then(response => response.json())
     .then(data=>
     {
@@ -33,7 +33,7 @@ function solicitarCita(usuario)
     let hora = document.getElementById("hora");
     let motivo = document.getElementById("motivo");
 
-    fetch("http://localhost:5000/ingresarCita/"+usuario,
+    fetch("http://130.211.213.9:5000/ingresarCita/"+usuario,
         {
             method:'POST',
             headers,

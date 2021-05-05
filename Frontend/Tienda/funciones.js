@@ -1,7 +1,7 @@
 let headers = new Headers()
 headers.append('Content-Type', 'application/json');
 headers.append('Accept', 'application/json');
-headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
+headers.append('Access-Control-Allow-Origin', 'http://130.211.213.9:5000');
 headers.append('Access-Control-Allow-Credentials', 'true');
 headers.append('GET', 'POST', 'OPTIONS','PUT','DELETE');
 
@@ -10,7 +10,7 @@ function tienda()
 {
     document.getElementById("cardsc").innerHTML='';
     let text=""
-    fetch("http://localhost:5000/obtenerMedicinas")
+    fetch("http://130.211.213.9:5000/obtenerMedicinas")
     .then(response => response.json())
     .then(data=>
         {
@@ -38,7 +38,7 @@ function tienda()
 function comprar(producto)
 {
     alert("Comprado")
-    fetch("http://localhost:5000/comprar/"+producto,
+    fetch("http://130.211.213.9:5000/comprar/"+producto,
     {
         method:'POST',
         headers,
@@ -67,7 +67,7 @@ function productos()
     let text=""
     let total=0
     let totalProducto=0
-    fetch("http://localhost:5000/finalizarCompra")
+    fetch("http://130.211.213.9:5000/finalizarCompra")
     .then(response => response.json())
     .then(data=>
         {

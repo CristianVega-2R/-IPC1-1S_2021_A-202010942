@@ -1,7 +1,7 @@
 let headers = new Headers()
 headers.append('Content-Type', 'application/json');
 headers.append('Accept', 'application/json');
-headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
+headers.append('Access-Control-Allow-Origin', 'http://130.211.213.9:5000');
 headers.append('Access-Control-Allow-Credentials', 'true');
 headers.append('GET', 'POST', 'OPTIONS','PUT','DELETE');
 
@@ -24,7 +24,7 @@ var texto=""
 
 function listadoDoctores()
 {
-    fetch("http://localhost:5000/obtenerUsuarios")
+    fetch("http://130.211.213.9:5000/obtenerUsuarios")
     .then(response => response.json())
     .then(data=>
         {
@@ -46,7 +46,7 @@ function listadoPendiente()
 {
     document.getElementById("cardsc").innerHTML='';
     let text=""
-    fetch("http://localhost:5000/obtenerCitas")
+    fetch("http://130.211.213.9:5000/obtenerCitas")
     .then(response => response.json())
     .then(data=>
         {
@@ -80,7 +80,7 @@ function listadoAceptado()
 {
     document.getElementById("cardsc1").innerHTML='';
     let text=""
-    fetch("http://localhost:5000/obtenerCitas")
+    fetch("http://130.211.213.9:5000/obtenerCitas")
     .then(response => response.json())
     .then(data=>
         {
@@ -116,7 +116,7 @@ function aceptar(idCita)
     var doctor = e.options[e.selectedIndex].text;
     
     alert(doctor)
-    fetch("http://localhost:5000/aceptar/"+idCita+"/"+doctor+"/Aceptado",
+    fetch("http://130.211.213.9:5000/aceptar/"+idCita+"/"+doctor+"/Aceptado",
         {
             method:'PUT',
             headers
@@ -144,7 +144,7 @@ function aceptar(idCita)
         var doctor = e.options[e.selectedIndex].text;
         
         alert(doctor)
-        fetch("http://localhost:5000/aceptar/"+idCita+"/"+doctor+"/Rechazado",
+        fetch("http://130.211.213.9:5000/aceptar/"+idCita+"/"+doctor+"/Rechazado",
             {
                 method:'PUT',
                 headers
@@ -169,7 +169,7 @@ function aceptar(idCita)
     function guardarFactura(idCita)
     {
         alert(idCita+"a")
-        fetch("http://localhost:5000/recibirFactura/"+idCita,
+        fetch("http://130.211.213.9:5000/recibirFactura/"+idCita,
             {
                 method:'POST',
                 headers
@@ -195,7 +195,7 @@ function aceptar(idCita)
 {
     
     let text=""
-    fetch("http://localhost:5000/entregarFactura")
+    fetch("http://130.211.213.9:5000/entregarFactura")
     .then(response => response.json())
     .then(data=>
         {
@@ -213,7 +213,7 @@ function facturar(id)
     let total = parseFloat(consulta.value)+parseFloat(operacion.value)+parseFloat(internado.value)
     document.getElementById("cardscFacturaGenerar").innerHTML='';
 
-    fetch("http://localhost:5000/obtenerCitas")
+    fetch("http://130.211.213.9:5000/obtenerCitas")
     .then(response => response.json())
     .then(data=>
         {
