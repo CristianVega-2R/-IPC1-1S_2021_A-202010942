@@ -30,7 +30,7 @@
                 <h5>Carga masiva pacientes</h5>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="ruta" id="rutaPacientes" name="ruta">
+                    <input type="file" id="rutaPacientes" name="ruta" accept=".csv">
                 </div>
                 <div class="form-group">
                     <input type="button" class="btn btn-primary carga" id="cargarArchivoPacientes" value="Cargar" onclick="cargaArchivoPaciente('rutaPacientes','1')">
@@ -39,7 +39,7 @@
                 <h5>Carga masiva enfermeros</h5>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="ruta" id="rutaEnfermeros" name="ruta">
+                    <input type="file" id="rutaEnfermeros" name="ruta" accept=".csv">
                 </div>
                 <div class="form-group">
                     <input type="button" class="btn btn-primary carga" id="cargarArchivoPacientes" value="Cargar" onclick="cargaArchivoPaciente('rutaEnfermeros','2')">
@@ -48,7 +48,7 @@
                 <h5>Carga masiva doctores</h5>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="ruta" id="rutaDoctores" name="ruta">
+                    <input type="file" id="rutaDoctores" name="ruta" accept=".csv">
                 </div>
                 <div class="form-group">
                     <input type="button" class="btn btn-primary carga" id="cargarArchivoPacientes" value="Cargar" onclick="cargaArchivo('rutaDoctores','3')">
@@ -57,7 +57,7 @@
                 <h5>Carga masiva medicinas</h5>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="ruta" id="rutaMedicinas" name="ruta">
+                    <input type="file" id="rutaMedicinas" name="ruta" accept=".csv">
                 </div>
                 <div class="form-group">
                     <input type="button" class="btn btn-primary carga" id="cargarArchivoMedicina" value="Carga" onclick="cargaArchivoMedicina()">
