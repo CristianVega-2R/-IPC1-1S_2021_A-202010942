@@ -137,5 +137,23 @@ def top3doctores():
 def conteoEnfermedades():
     return gestor.mostrarEnfermedades()
 
+@app.route("/cargaNueva/<tipo>",methods=['POST'])
+def carga(tipo):
+    dato = request.json
+    gestor.cargamasiva(dato['data'],tipo)
+    return '{"data":"Cargados"}'
+
+@app.route("/cargaNuevaDoctores/<tipo>",methods=['POST'])
+def cargadoctores(tipo):
+    dato = request.json
+    gestor.cargamasivadoctores(dato['data'],tipo)
+    return '{"data":"Cargados"}'
+
+@app.route("/cargaMedicinasNueva",methods=['POST'])
+def cargaMedicinasNueva():
+    dato = request.json
+    gestor.cargamasivamedicinas(dato['data'])
+    return '{"data":"Cargados"}'
+
 if __name__ == "__main__":      
     app.run(host='0.0.0.0',debug=True)

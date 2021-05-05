@@ -1,7 +1,7 @@
 let headers = new Headers()
 headers.append('Content-Type', 'application/json');
 headers.append('Accept', 'application/json');
-headers.append('Access-Control-Allow-Origin', 'http://130.211.213.9:5000');
+headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
 headers.append('Access-Control-Allow-Credentials', 'true');
 headers.append('GET', 'POST', 'OPTIONS','PUT','DELETE');
 
@@ -24,7 +24,7 @@ var texto=""
 
 function listadoDoctores()
 {
-    fetch("http://130.211.213.9:5000/solicitar")
+    fetch("http://localhost:5000/solicitar")
     .then(response => response.json())
     .then(data=>
         {   
@@ -37,7 +37,7 @@ function listadoPendiente()
 {
     document.getElementById("cardsc").innerHTML='';
     let text=""
-    fetch("http://130.211.213.9:5000/obtenerCitas")
+    fetch("http://localhost:5000/obtenerCitas")
     .then(response => response.json())
     .then(data=>
         {
@@ -70,7 +70,7 @@ function listadoPendiente()
 function aceptar(idCita)
 {
     alert(doctor)
-    fetch("http://130.211.213.9:5000/aceptar/"+idCita+"/"+doctor+"/Aceptado",
+    fetch("http://localhost:5000/aceptar/"+idCita+"/"+doctor+"/Aceptado",
         {
             method:'PUT',
             headers
@@ -94,7 +94,7 @@ function aceptar(idCita)
 function declinar(idCita)
 {
     alert(doctor)
-    fetch("http://130.211.213.9:5000/aceptar/"+idCita+"/"+doctor+"/Rechazado",
+    fetch("http://localhost:5000/aceptar/"+idCita+"/"+doctor+"/Rechazado",
         {
             method:'PUT',
             headers
@@ -119,7 +119,7 @@ function listadoAceptado()
 {
     document.getElementById("cardsc1").innerHTML='';
     let text=""
-    fetch("http://130.211.213.9:5000/obtenerCitas")
+    fetch("http://localhost:5000/obtenerCitas")
     .then(response => response.json())
     .then(data=>
         {
@@ -157,7 +157,7 @@ function recetar(idCita)
 {
     nombrePrueba=idCita
     alert(idCita+"A")
-    fetch("http://130.211.213.9:5000/recibirCita/"+idCita,
+    fetch("http://localhost:5000/recibirCita/"+idCita,
     {
         method:'POST',
         headers,
@@ -188,7 +188,7 @@ function crearBotonRecetar()
 {
     document.getElementById("cardscRecetar").innerHTML='';
     let text=""
-    fetch("http://130.211.213.9:5000/entregarCita")
+    fetch("http://localhost:5000/entregarCita")
     .then(response => response.json())
     .then(data=>
         {
@@ -207,7 +207,7 @@ function agregarReceta(nombre)
     alert(descripcion.value)
     alert(nombre)
     alert("pen4e")
-    fetch("http://130.211.213.9:5000/agregarReceta/"+nombre+"/"+padecimiento.value+"/"+descripcion.value,
+    fetch("http://localhost:5000/agregarReceta/"+nombre+"/"+padecimiento.value+"/"+descripcion.value,
     {
         method:'POST',
         headers,

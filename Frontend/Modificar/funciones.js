@@ -1,7 +1,7 @@
 let headers = new Headers()
 headers.append('Content-Type', 'application/json');
 headers.append('Accept', 'application/json');
-headers.append('Access-Control-Allow-Origin', 'http://130.211.213.9:5000');
+headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
 headers.append('Access-Control-Allow-Credentials', 'true');
 headers.append('GET', 'POST', 'OPTIONS','PUT','DELETE');
 
@@ -12,7 +12,7 @@ var nombreUsuario=null
 function generarBotonPaciente()
 {
     let texto='';
-    fetch(`http://130.211.213.9:5000/solicitar`)
+    fetch(`http://localhost:5000/solicitar`)
     .then(response =>response.json())
     .then(data =>   
     {
@@ -25,7 +25,7 @@ function generarBotonPaciente()
 function generarBotonEnfermeros()
 {
     let texto='';
-    fetch(`http://130.211.213.9:5000/solicitar`)
+    fetch(`http://localhost:5000/solicitar`)
     .then(response =>response.json())
     .then(data =>   
     {
@@ -38,7 +38,7 @@ function generarBotonEnfermeros()
 function generarBotonDoctor()
 {
     let texto='';
-    fetch(`http://130.211.213.9:5000/solicitar`)
+    fetch(`http://localhost:5000/solicitar`)
     .then(response =>response.json())
     .then(data =>   
     {
@@ -61,7 +61,7 @@ function modificarPaciente(nombreUsuario)
     let telefono = document.getElementById("telefono");
 
     alert(nombreUsuario+"a")
-    fetch("http://130.211.213.9:5000/usuarios/"+nombreUsuario,
+    fetch("http://localhost:5000/usuarios/"+nombreUsuario,
     {
         method:'PUT',
         headers,
@@ -107,7 +107,7 @@ function modificarEnfermero(nombreUsuario)
     let telefono = document.getElementById("telefono");
 
     alert(nombreUsuario+"a")
-    fetch("http://130.211.213.9:5000/usuarios/"+nombreUsuario,
+    fetch("http://localhost:5000/usuarios/"+nombreUsuario,
     {
         method:'PUT',
         headers,
@@ -152,7 +152,7 @@ function modificarDoctor(nombreUsuario)
     let telefono = document.getElementById("telefono");
 
     alert(nombreUsuario+"a")
-    fetch("http://130.211.213.9:5000/usuarios/"+nombreUsuario,
+    fetch("http://localhost:5000/usuarios/"+nombreUsuario,
     {
         method:'PUT',
         headers,

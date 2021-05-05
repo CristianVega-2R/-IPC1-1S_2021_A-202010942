@@ -4,6 +4,7 @@ from Cita import Cita
 from Receta import Receta
 from Top3 import Top3
 import json
+import re
 
 class Gestor:
     def __init__(self):
@@ -287,6 +288,36 @@ class Gestor:
                 texto+='{"padecimiento": "' +nombresOrdenados[x].padecimiento +'", "cantidad": "'+ str(cantidad) +'"},'
                 cantidad=1
         return texto
+    
+    def cargamasiva(self,data,tipo):
+        hola = re.split('\n',data)
+        print(hola[0])
+        i=1
+        while i < len(hola):
+            texto = re.split(',',hola[i])
+            print("hola")
+            self.usuarios.append(Usuario(texto[0],texto[1],texto[2],texto[3],texto[4],texto[5],texto[6],"",str(tipo)))
+            i = i+1 
+    
+    def cargamasivadoctores(self,data,tipo):
+        hola = re.split('\n',data)
+        print(hola[0])
+        i=1
+        while i < len(hola):
+            texto = re.split(',',hola[i])
+            print("hola")
+            self.usuarios.append(Usuario(texto[0],texto[1],texto[2],texto[3],texto[4],texto[5],texto[6],texto[7],str(tipo)))
+            i = i+1
+
+    def cargamasivamedicinas(self,data):
+        hola = re.split('\n',data)
+        print(hola[0])
+        i=1
+        while i < len(hola):
+            texto = re.split(',',hola[i])
+            print("hola")
+            self.medicinas.append(Medicina(texto[0],texto[1],texto[2],texto[3],0))
+            i = i+1 
 
             
 

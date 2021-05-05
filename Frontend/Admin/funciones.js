@@ -1,7 +1,7 @@
 let headers = new Headers()
 headers.append('Content-Type', 'application/json');
 headers.append('Accept', 'application/json');
-headers.append('Access-Control-Allow-Origin', 'http://130.211.213.9:5000');
+headers.append('Access-Control-Allow-Origin', 'http://localhost:5000');
 headers.append('Access-Control-Allow-Credentials', 'true');
 headers.append('GET', 'POST', 'OPTIONS','PUT','DELETE');
 
@@ -10,12 +10,137 @@ function enviarPDF()
     location.href="pdfListado.html"
 }
 
+
+function cargarPacientes(){
+    let file = document.getElementById("cargaPacientes").files[0];
+    if (file) {
+        let reader = new FileReader();
+        reader.readAsText(file, "UTF-8");
+        reader.onload = function (evt) {
+            let cuerpo = {
+                data:evt.target.result
+            }
+
+            console.log(JSON.stringify(cuerpo))
+            fetch('http://localhost:5000/cargaNueva/1', {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(cuerpo),
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        }
+        reader.onerror = function (evt) {
+            
+        }
+    }
+}
+
+function cargarEnfermeros(){
+    let file = document.getElementById("cargaEnfermeros").files[0];
+    if (file) {
+        let reader = new FileReader();
+        reader.readAsText(file, "UTF-8");
+        reader.onload = function (evt) {
+            let cuerpo = {
+                data:evt.target.result
+            }
+
+            console.log(JSON.stringify(cuerpo))
+            fetch('http://localhost:5000/cargaNueva/2', {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(cuerpo),
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        }
+        reader.onerror = function (evt) {
+            
+        }
+    }
+}
+
+function cargarDoctores(){
+    let file = document.getElementById("cargaDoctores").files[0];
+    if (file) {
+        let reader = new FileReader();
+        reader.readAsText(file, "UTF-8");
+        reader.onload = function (evt) {
+            let cuerpo = {
+                data:evt.target.result
+            }
+
+            console.log(JSON.stringify(cuerpo))
+            fetch('http://localhost:5000/cargaNuevaDoctores/3', {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(cuerpo),
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        }
+        reader.onerror = function (evt) {
+            
+        }
+    }
+}
+
+function cargarMedicinas(){
+    let file = document.getElementById("cargaMedicinas").files[0];
+    if (file) {
+        let reader = new FileReader();
+        reader.readAsText(file, "UTF-8");
+        reader.onload = function (evt) {
+            let cuerpo = {
+                data:evt.target.result
+            }
+
+            console.log(JSON.stringify(cuerpo))
+            fetch('http://localhost:5000/cargaMedicinasNueva', {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(cuerpo),
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        }
+        reader.onerror = function (evt) {
+            
+        }
+    }
+}
+
 function cargaArchivo(rutaForm,tipo)
 {
     alert(rutaForm)
     let ruta = document.getElementById(rutaForm)
 
-    fetch("http://130.211.213.9:5000/carga/"+(ruta.value)+"/"+tipo,
+    fetch("http://localhost:5000/carga/"+(ruta.value)+"/"+tipo,
     {
         method:'POST',
         headers,
@@ -45,7 +170,7 @@ function cargaArchivoPaciente(rutaForm,tipo)
     alert(rutaForm)
     let ruta = document.getElementById(rutaForm)
 
-    fetch("http://130.211.213.9:5000/cargaPaciente/"+(ruta.value)+"/"+tipo,
+    fetch("http://localhost:5000/cargaPaciente/"+(ruta.value)+"/"+tipo,
     {
         method:'POST',
         headers,
@@ -74,7 +199,7 @@ function cargaArchivoPaciente(rutaForm,tipo)
 function cargaArchivoMedicina()
 {
     let ruta = document.getElementById("rutaMedicinas")
-    fetch("http://130.211.213.9:5000/carga/"+(ruta.value),
+    fetch("http://localhost:5000/carga/"+(ruta.value),
     {
         method:'POST',
         headers,
@@ -101,9 +226,10 @@ function cargaArchivoMedicina()
 
 function actualizar()
 {
+    alert("cargando")
     document.getElementById("cardsc").innerHTML='';
     let text=""
-    fetch("http://130.211.213.9:5000/obtenerUsuarios")
+    fetch("http://localhost:5000/obtenerUsuarios")
     .then(response => response.json())
     .then(data=>
         {
@@ -171,6 +297,7 @@ function actualizar()
             text+="</table>"
 
         document.getElementById("cardsc").innerHTML=text;
+        alert("cargando")
     });
 }
 
@@ -178,7 +305,7 @@ function actualizarMedicamentos()
 {
     document.getElementById("cardscMedicinas").innerHTML='';
     let text=""
-    fetch("http://130.211.213.9:5000/obtenerMedicinas")
+    fetch("http://localhost:5000/obtenerMedicinas")
     .then(response => response.json())
     .then(data=>
         {
@@ -253,7 +380,7 @@ function actualizarPDF()
 {
     document.getElementById("cardsc").innerHTML='';
     let text=""
-    fetch("http://130.211.213.9:5000/obtenerUsuarios")
+    fetch("http://localhost:5000/obtenerUsuarios")
     .then(response => response.json())
     .then(data=>
         {
@@ -317,7 +444,7 @@ function mostrarTop5Medicamentos()
 {
     document.getElementById("cardscTop5").innerHTML='';
     let text=""
-    fetch("http://130.211.213.9:5000/top5medicamentos")
+    fetch("http://localhost:5000/top5medicamentos")
     .then(response => response.json())
     .then(data=>
         {
@@ -344,7 +471,7 @@ function mostrarTop3Doctores()
 {
     document.getElementById("cardscTop3").innerHTML='';
     let text=""
-    fetch("http://130.211.213.9:5000/top3doctores")
+    fetch("http://localhost:5000/top3doctores")
     .then(response => response.json())
     .then(data=>
         {
@@ -371,7 +498,7 @@ function mostrarPadecimientos()
 {
     document.getElementById("cardscPadecimientos").innerHTML='';
     let text=""
-    fetch("http://130.211.213.9:5000/conteoEnfermedades")
+    fetch("http://localhost:5000/conteoEnfermedades")
     .then(response => response.json())
     .then(data=>
         {
@@ -397,7 +524,7 @@ var insertar;
 
 function visualizar()
 {
-    fetch(`http://130.211.213.9:5000/recibirNombre`)
+    fetch(`http://localhost:5000/recibirNombre`)
     .then(response =>response.json())
     .then(data =>   
     {
@@ -410,7 +537,7 @@ function visualizar()
 function mostrarDatos()
 {
     alert("empezando"+insertar)
-    fetch(`http://130.211.213.9:5000/usuarios/`+insertar)
+    fetch(`http://localhost:5000/usuarios/`+insertar)
     .then(response =>response.json())
     .then(data =>   
     {
@@ -456,7 +583,7 @@ function mostrarDatos()
 function eliminar(nombre)
 {
     alert(nombre)
-    fetch("http://130.211.213.9:5000/usuarios/"+nombre,
+    fetch("http://localhost:5000/usuarios/"+nombre,
     {
         method:'DELETE',
         headers,
@@ -481,7 +608,7 @@ function eliminar(nombre)
 function enviarModificar(nombre,tipo)
 {
     alert(nombre)
-    fetch("http://130.211.213.9:5000/enviarNombre/"+nombre+"/"+tipo,
+    fetch("http://localhost:5000/enviarNombre/"+nombre+"/"+tipo,
     {
         method:'POST',
         headers,
@@ -511,7 +638,7 @@ function enviarModificar(nombre,tipo)
 function crearModificar()
 {
     
-    fetch(`http://130.211.213.9:5000/recibirNombre`)
+    fetch(`http://localhost:5000/recibirNombre`)
     .then(response =>response.json())
     .then(data =>   
     {
@@ -532,7 +659,7 @@ function modificar(nombre,tipo)
     let contrasena = document.getElementById("contrasena");
     let telefono = document.getElementById("telefono");
     alert(tipo)
-    fetch("http://130.211.213.9:5000/usuarios/"+nombre,
+    fetch("http://localhost:5000/usuarios/"+nombre,
     {
         method:'PUT',
         headers,

@@ -30,7 +30,13 @@
                 <h5>Carga masiva pacientes</h5>
                 </div>
                 <div class="form-group">
-                    <input type="file" id="rutaPacientes" name="ruta" accept=".csv">
+                    <label for="rutaPacientes">Choose a profile picture:</label>
+
+                    <input type="file"
+                               id="cargaPacientes" name="carga"
+                               accept=".csv">
+                               <br>
+                               <button class="btn btn btn-success" onclick="cargarPacientes()">Cargar</button>
                 </div>
                 <div class="form-group">
                     <input type="button" class="btn btn-primary carga" id="cargarArchivoPacientes" value="Cargar" onclick="cargaArchivoPaciente('rutaPacientes','1')">
@@ -39,7 +45,13 @@
                 <h5>Carga masiva enfermeros</h5>
                 </div>
                 <div class="form-group">
-                    <input type="file" id="rutaEnfermeros" name="ruta" accept=".csv">
+                    <label for="rutaPacientes">Choose a profile picture:</label>
+
+                    <input type="file"
+                               id="cargaEnfermeros" name="carga"
+                               accept=".csv">
+                               <br>
+                               <button class="btn btn btn-success" onclick="cargarEnfermeros()">Cargar</button>
                 </div>
                 <div class="form-group">
                     <input type="button" class="btn btn-primary carga" id="cargarArchivoPacientes" value="Cargar" onclick="cargaArchivoPaciente('rutaEnfermeros','2')">
@@ -48,7 +60,13 @@
                 <h5>Carga masiva doctores</h5>
                 </div>
                 <div class="form-group">
-                    <input type="file" id="rutaDoctores" name="ruta" accept=".csv">
+                    <label for="rutaPacientes">Choose a profile picture:</label>
+
+                    <input type="file"
+                               id="cargaDoctores" name="carga"
+                               accept=".csv">
+                               <br>
+                               <button class="btn btn btn-success" onclick="cargarDoctores()">Cargar</button>
                 </div>
                 <div class="form-group">
                     <input type="button" class="btn btn-primary carga" id="cargarArchivoPacientes" value="Cargar" onclick="cargaArchivo('rutaDoctores','3')">
@@ -57,7 +75,11 @@
                 <h5>Carga masiva medicinas</h5>
                 </div>
                 <div class="form-group">
-                    <input type="file" id="rutaMedicinas" name="ruta" accept=".csv">
+                    <input type="file"
+                               id="cargaMedicinas" name="carga"
+                               accept=".csv">
+                               <br>
+                               <button class="btn btn btn-success" onclick="cargarMedicinas()">Cargar</button>
                 </div>
                 <div class="form-group">
                     <input type="button" class="btn btn-primary carga" id="cargarArchivoMedicina" value="Carga" onclick="cargaArchivoMedicina()">
